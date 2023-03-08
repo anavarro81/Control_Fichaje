@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>  Fichaje  </title>    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+</head>
+<body>
+
+
+  <div class="cabecera">
+    <form action="">
+      <label for="semana"> Ver semana: </label>
+      <input type="date" id="semana" name="semana">    
+    </form>
+
+    <button type="button"> Fichar </button>
+  </div>
+
+  <table>
+    <tr>
+      <th> Fecha </th>
+      <th>Hora Entrada</th>
+      <th>Hora Salida</th>
+      <th>Horas dia</th>
+      <th>Motivo</th>
+      <th>Acciones</th>
+    </tr>
+    
+
+      {% for day in range(0, 6) %}
+      
+        {{semana|length}}
+        
+        <tr>
+          <td> 1 </td> 
+          <td> ... </td>
+          <td> ... </td>
+          <td> ... </td>
+          <td> ... </td>
+          <td> ... </td>
+        </tr>
+      {% endfor %}  
+  </table>
+
+
+
+
+
+
+
+
+</body>
+</html>
