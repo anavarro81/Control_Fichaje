@@ -11,48 +11,55 @@
 </head>
 <body>
 
+  
 
+<!-- Formulario seleccionar fecha para ver imputaciones -->
   <div class="cabecera">
     <form action="">
       <label for="semana"> Ver semana: </label>
       <input type="date" id="semana" name="semana">    
     </form>
-
-    <button type="button"> Fichar </button>
+    <button type="button"> OK </button>
   </div>
+<!-- Fomrulario seleccinar fecha para ver imputaciones -->
+<div class="tabla_horario"> 
+  <form action="" id="form_horario">
+    <table>
+      <tr>
+        <th> Fecha </th>
+        <th>Hora Entrada</th>
+        <th>Hora Salida</th>
+        <th>Horas dia</th>
+        <th>Motivo</th>
+        <th>Acciones</th>
+      </tr>
+        {% for day in range(0, semana|length) %}      
+          <tr>
+            <td id="fecha_lunes"> {{semana[day]}} </td> 
+            
+            <!-- Hora de entrada -->
+            <td> <input type="text" name="hentrada" id="hora_ent"> </td> 
+            
+            <!-- Hora de salida -->
+            <td> <input type="text" name="hentrada" id="hora_sal"> </td>
+            
+            <!-- Total horas dia -->
+            <td> 0:00 </td>
+            
+            <!-- Motivo incumplimiento horario -->
+            <td> <input type="text" name="hentrada"> </td>
+            
+            <td> <button type="button"> Editar </button>
+            </td>
+          </tr>
+        {% endfor %}  
+    </table>       
+  </form>
+  <button type="submit" form="form_horario" onclick="return validarHora()" value="Submit"> Fichar </button>
 
-  <table>
-    <tr>
-      <th> Fecha </th>
-      <th>Hora Entrada</th>
-      <th>Hora Salida</th>
-      <th>Horas dia</th>
-      <th>Motivo</th>
-      <th>Acciones</th>
-    </tr>
-    
+</div>
 
-      {% for day in range(0, 6) %}
-      
-        {{semana|length}}
-        
-        <tr>
-          <td> 1 </td> 
-          <td> ... </td>
-          <td> ... </td>
-          <td> ... </td>
-          <td> ... </td>
-          <td> ... </td>
-        </tr>
-      {% endfor %}  
-  </table>
-
-
-
-
-
-
-
+<script src = "{{ url_for('static', filename='validaciones.js') }}"> </script>
 
 </body>
 </html>

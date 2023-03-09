@@ -18,21 +18,21 @@ def invertir_fecha(fecha):
 @app.route('/')
 def index():
     
+    semana = []
+    
     # Recuperamos la fecha del día
     fecha_actual = fecha = date.today()
     
     # Calcular el lunes de la fecha actual
-    primer_dia = fecha_actual - timedelta(days=fecha_actual.weekday() % 7)
-
-    print ('Lunes: ', str(primer_dia))
-    
-    semana = []
-    
-    for day in range(0, 6):
+    primer_dia = fecha_actual - timedelta(days=fecha_actual.weekday() % 7)     
+        
+    for day in range(0, 7):
 
         fecha = primer_dia + timedelta(days=day)
         fecha_invertida = invertir_fecha(fecha)        
         semana.append(fecha_invertida)
+        print (semana)
+
         
     
     return render_template('index.html', semana=semana)
