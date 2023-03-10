@@ -34,7 +34,7 @@ def get_weekdays(week):
     # Iterar por los próximos 5 días para obtener los días de lunes a viernes
     for i in range(7):
         day = start_of_week + timedelta(days=i)
-        weekdays.append(day.strftime('%A: %Y-%m-%d').capitalize())
+        weekdays.append(day.strftime('%A: %d-%m-%Y').capitalize())
 
     return weekdays
 
@@ -67,6 +67,8 @@ def index():
     week = f'{anyo}-W{numero_semana:02d}'
     print(week)
     weekdays = get_weekdays(week)
+
+    print(weekdays)
 
     return render_template('index.html', semana=weekdays, fecha=week)
 
